@@ -29,7 +29,7 @@ hist(x) #istogramma
 
 
 # 2. Test
-wilcox.test(x, m = 0) #one sample Wilcoxon signed-rank test. mu è la mediana, e può essere impostata diversamente da 0
+wilcox.test(x, mu = 0) #one sample Wilcoxon signed-rank test. mu è la mediana, e può essere impostata diversamente da 0
 
 ## Variabili ordinali (2 variabili x e y)
 
@@ -56,3 +56,6 @@ wilcox.test(x ~ y)
 
 # per confrontare due vettori "numerici"
 wilcox.test(x,y, paired = TRUE) #specificare paired = TRUE se le misurazioni non sono indipendenti
+
+# kruskal-wallis test
+kruskal.test(x ~ y)
