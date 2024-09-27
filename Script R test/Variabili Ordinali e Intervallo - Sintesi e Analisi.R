@@ -42,10 +42,16 @@ IQR(x)
 median(y)
 IQR(y)
 
-# istogrammi sovrapposti delle due variabili, utilizzare i tre comandi successivi uno dopo l'altro
-m = max(x,y)
-hist(x, xlim=c(0,m), col="red")
-hist(y, add=T, col=rgb(0, 1, 0, 0.5) )
+#tabella di contingenza (x variabile ordinale)
+table(y, x)
+
+round(prop.table(table(y,x), margin = 1)*100, 2) #tabella con proporzioni (somma 100 per riga)
+
+# barplot raggruppato per i valori della variabile y (nominale) e che mostra i valori della  variabile x  (ordinale)
+barplot(table(x, y), beside=T)
+
+#mosaicplot (ordinale vs ordinale oppure ordinale vs nominale)
+mosaicplot(table(x, y), color = T)
 
 # 2. Test di Correlazione
 cor.test(x,y, method = "spearman")
