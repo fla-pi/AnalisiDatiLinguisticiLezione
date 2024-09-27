@@ -61,10 +61,20 @@ IQR(y)
 # per plot dei valori dix divisi per valor idella variabile nominale y
 boxplot(x ~ y)
 
+# istogrammi sovrapposti di due variabili ratio, utilizzare i tre comandi successivi uno dopo l'altro
+m = max(x,y)
+hist(x, xlim=c(0,m), col="red")
+hist(y, add=T, col=rgb(0, 1, 0, 0.5) )
+
 # 2. Test di Correlazione
 cor.test(x,y, method = "pearson") #correlazione di pearson
 cor.test(x,y, method = "spearman") #correlazione di spearman
 cor.test(x,y, method = "kendall")  #correlazione di kendall
+
+plot(x,y) #scatterplot se x e y sono entrambe ratio (se si vuole aggiungere una linea di regressione, aggiungere i due comandi successivi)
+
+reg<-lm(y ~ x, data = dataset)
+abline(reg, col = red)
 
 # 3. Test per confrontare due gruppi
 t.test(x ~ y) #t-test x = variabile ratio, y = variabile nominale
